@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abbasgulu Allahverdili — Data Analyst</title>
+
+  <meta name="description" content="Abbasgulu Allahverdili — Data Analyst based in Baku, Azerbaijan. SQL, Python, Power BI. Building public datasets, scraping pipelines and dashboards.">
+  <meta name="author" content="Abbasgulu Allahverdili">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abbasgulu Allahverdili — Data Analyst">
+  <meta property="og:description" content="Data Analyst based in Baku. SQL, Python, Power BI. Public datasets, scraping pipelines and dashboards.">
+  <meta property="og:url" content="https://abbasgulu.github.io/">
+  <meta property="og:image" content="https://abbasgulu.github.io/assets/images/my-avatar.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="canonical" href="https://abbasgulu.github.io/">
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!--
+    - theme init: runs before paint so there's no flash of the wrong theme.
+    - saved choice wins; otherwise follow the OS setting.
+  -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = saved || (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <button class="theme-toggle" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
+    <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+    <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+  </button>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main data-active-page="about">
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.jpg" alt="Abbasgulu Allahverdili" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Abbasgulu Allahverdili">Abbasgulu Allahverdili</h1>
+
+          <p class="title">Data Analyst</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="sidebar-tags-list">
+
+          <li><span class="sidebar-tag">SQL</span></li>
+          <li><span class="sidebar-tag">Python</span></li>
+          <li><span class="sidebar-tag">Power BI</span></li>
+          <li><span class="sidebar-tag">Excel</span></li>
+          <li><span class="sidebar-tag">Web Scraping</span></li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/abbasallahverdili/" class="social-link" target="_blank" rel="noopener" title="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/abbasgulu" class="social-link" target="_blank" rel="noopener" title="GitHub">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.behance.net/abbasgulu" class="social-link" target="_blank" rel="noopener" title="Behance — graphic design">
+              <ion-icon name="logo-behance"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.kaggle.com/abbasgulu" class="social-link" target="_blank" rel="noopener" title="Kaggle">
+              <svg class="social-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20.93 28.5c-.06.13-.2.2-.42.2h-3.4c-.2 0-.37-.08-.5-.24l-6.1-7.77-1.7 1.63v6c0 .26-.13.38-.38.38H5.8c-.26 0-.38-.12-.38-.38V3.68c0-.25.12-.38.38-.38h2.62c.25 0 .38.13.38.38v14.9l6.98-7.06c.17-.17.35-.25.53-.25h3.5c.16 0 .27.07.32.22.05.15.03.27-.7.37l-7.4 7.16 8.2 9.14c.1.13.13.26.07.34z"/>
+              </svg>
+            </a>
+          </li>
+
+        </ul>
+
+        <a href="./assets/doc/Abbasgulu-Allahverdili-CV.pdf" class="sidebar-cv-btn" download>
+          <ion-icon name="download-outline"></ion-icon>
+          <span>Download CV</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Data Analyst based in Baku, Azerbaijan. I work across the full data lifecycle — collecting, cleaning,
+            exploring and modelling data with <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong> and
+            <strong>Power BI</strong> — turning it into dashboards that answer real business questions.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">How I Work</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-collect.svg" alt="data collection icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"><span class="step-num">1</span>Data Collection</h4>
+
+                <p class="service-item-text">
+                  Databases with <strong>SQL</strong>, the web with <strong>Python</strong> scrapers — automated to run
+                  itself.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-clean.svg" alt="data cleaning icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"><span class="step-num">2</span>Data Cleaning</h4>
+
+                <p class="service-item-text">
+                  Missing values, duplicates and messy formats fixed in <strong>Python</strong> and
+                  <strong>Excel</strong> — so the numbers hold up.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-eda.svg" alt="exploratory analysis icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"><span class="step-num">3</span>Exploratory Data Analysis</h4>
+
+                <p class="service-item-text">
+                  Patterns, outliers and relationships surfaced in <strong>Power BI</strong> dashboards you can read at
+                  a glance.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-model.svg" alt="modelling icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"><span class="step-num">4</span>Modelling &amp; Algorithms</h4>
+
+                <p class="service-item-text">
+                  Statistical methods and algorithms that explain what drives the numbers — and predict what's next.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Yildiz Technical University</h4>
+
+              <p class="timeline-org">BSc. Mathematical Engineering <span class="timeline-date">(2018 — 2022)</span></p>
+
+              <p class="timeline-text">
+                A degree built on statistics, linear algebra, numerical methods and programming. It's where I learned to
+                turn a vague problem into a model, and a model into an answer someone can act on.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Teaching Assistant</h4>
+
+              <p class="timeline-org">Israel Azerbaijan Training Center <span class="timeline-date">(02/2023 — 05/2023)</span></p>
+
+              <p class="timeline-text">
+                Supported the instructor on a data analytics course: walked students through Python, SQL and statistics
+                in the lab, reviewed their analyses, and broke down the concepts they got stuck on.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Analyst Intern</h4>
+
+              <p class="timeline-org">International Training &amp; Project Center <span class="timeline-date">(09/2021 — 03/2022)</span></p>
+
+              <p class="timeline-text">
+                Cleaned and analysed large datasets using statistical techniques, identified trends to generate
+                actionable insights, and designed reports and visualisations for stakeholders.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Certifications &amp; Awards</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Science with Python</h4>
+
+              <p class="timeline-org">Data SoCool <span class="timeline-date">(05/2024)</span></p>
+
+              <span><a href="./assets/doc/Data-Science-with-Python-DataSoCool.jpg" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Programming Essentials in Python (PCAP)</h4>
+
+              <p class="timeline-org">Cisco Networking Academy · OpenEDG Python Institute <span class="timeline-date">(03/2023)</span></p>
+
+              <span><a href="./assets/doc/PCAP-Programming-Essentials-in-Python.pdf" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">
+                Investigation of Brain Tumor Segmentation Using U-Net Architecture
+              </h4>
+
+              <p class="timeline-org">TÜBİTAK · 2209-A Research Projects Programme <span class="timeline-date">(11/2022 — 11/2024)</span></p>
+
+              <span><a href="./assets/doc/TUBITAK-2209A-Brain-Tumor-Segmentation.png" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <div class="skills-columns">
+
+            <div class="skills-col">
+              <h3 class="h3 skills-title">Skills</h3>
+              <ul class="skills-detail-list">
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">Python</span>
+                  <span class="skills-detail-note">pandas, requests, BeautifulSoup</span>
+                </li>
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">SQL</span>
+                  <span class="skills-detail-note">joins, aggregation, window functions</span>
+                </li>
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">Power BI</span>
+                  <span class="skills-detail-note">DAX, data modelling, dashboards</span>
+                </li>
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">Excel</span>
+                  <span class="skills-detail-note">pivot tables, lookups, reporting</span>
+                </li>
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">Web Scraping</span>
+                  <span class="skills-detail-note">automated collection pipelines</span>
+                </li>
+                <li class="skills-detail-item">
+                  <span class="skills-detail-name">Git</span>
+                  <span class="skills-detail-note">version control</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="skills-col">
+              <h3 class="h3 skills-title">Languages</h3>
+              <ul class="language-list">
+                <li class="language-item">
+                  <span class="language-name">Azerbaijani</span>
+                  <span class="language-level">Native</span>
+                </li>
+                <li class="language-item">
+                  <span class="language-name">Turkish</span>
+                  <span class="language-level">Native</span>
+                </li>
+                <li class="language-item">
+                  <span class="language-name">English</span>
+                  <span class="language-level">Professional working</span>
+                </li>
+              </ul>
+
+              <a href="./assets/doc/Abbasgulu-Allahverdili-CV.pdf" class="resume-cv-btn" download>
+                <ion-icon name="download-outline"></ion-icon>
+                <span>Download full CV (PDF)</span>
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Projects I've built — data collection, analysis and dashboards.
+          </p>
+        </section>
+
+        <ul class="case-list">
+
+          <li class="case-item">
+
+            <figure class="case-img" style="background: #0d2233;">
+              <img src="./assets/images/projects/oxu-dataset.jpg" alt="Oxu.az News Dataset — 52,946 Azerbaijani news articles" loading="lazy">
+              <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/oxu-dataset-full.jpg" data-lightbox-caption="Oxu.az News Dataset — 52,946 Azerbaijani news articles">
+                <ion-icon name="expand-outline"></ion-icon>
+                <span>View full size</span>
+              </button>
+            </figure>
+
+            <div class="case-body">
+
+              <h3 class="h3 case-title">Oxu.az</h3>
+              <p class="case-subline">News Dataset — 52,946 articles</p>
+
+              <ul class="case-tags">
+                <li><span class="case-tag">Python</span></li>
+                <li><span class="case-tag">Web scraping</span></li>
+                <li><span class="case-tag">EDA</span></li>
+                <li><span class="case-tag">Kaggle</span></li>
+              </ul>
+
+              <p class="case-text">
+                Local-language datasets are scarce, so I built one. A Python pipeline walks the archives of 13
+                categories and collects the title, date, author and reader reactions for every article published since
+                2013 — <strong>52,946 articles</strong> in total.
+              </p>
+
+              <p class="case-subtitle">What the analysis showed</p>
+
+              <ul class="case-findings">
+                <li>
+                  <strong>Sports</strong> is the most written-about category (5,812 articles), but
+                  <strong>Society</strong> is the most read — editorial focus and audience interest don't line up.
+                </li>
+                <li>
+                  In culture, tourism, ICT and show business the <strong>median article gets zero likes</strong>. Sports
+                  and politics run about three likes per dislike. People read the quiet categories; they just don't
+                  press the button.
+                </li>
+                <li>
+                  Short titles (1–4 words) hold a slight engagement edge — smaller than the folklore suggests.
+                </li>
+              </ul>
+
+              <div class="case-links">
+                <a href="https://www.kaggle.com/datasets/abbasgulu/oxu-az-news-dataset-52k-azerbaijani-articles" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="server-outline"></ion-icon>
+                  <span>Dataset on Kaggle</span>
+                </a>
+                <a href="https://www.kaggle.com/code/abbasgulu/oxu-az-news-dataset-comprehensive-eda-insights" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span>EDA notebook</span>
+                </a>
+              </div>
+
+            </div>
+
+          </li>
+
+          <li class="case-item">
+
+            <figure class="case-img" style="background: #f4f8f1;">
+              <img src="./assets/images/projects/superstore-dashboard.jpg" alt="Global Superstore interactive Excel dashboard" loading="lazy">
+              <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/superstore-dashboard-full.jpg" data-lightbox-caption="Global Superstore — interactive Excel dashboard">
+                <ion-icon name="expand-outline"></ion-icon>
+                <span>View full size</span>
+              </button>
+            </figure>
+
+            <div class="case-body">
+
+              <h3 class="h3 case-title">Global Superstore</h3>
+              <p class="case-subline">Interactive Excel Dashboard</p>
+
+              <ul class="case-tags">
+                <li><span class="case-tag">Excel</span></li>
+                <li><span class="case-tag">Power Query</span></li>
+                <li><span class="case-tag">Power Pivot</span></li>
+                <li><span class="case-tag">DAX</span></li>
+              </ul>
+
+              <p class="case-text">
+                A fully interactive dashboard on the Global Superstore dataset: <strong>Power Query</strong> for
+                cleaning and transformation, <strong>Power Pivot and DAX</strong> for the model and measures,
+                PivotCharts and slicers for the front end.
+              </p>
+
+              <p class="case-subtitle">What the data showed</p>
+
+              <ul class="case-findings">
+                <li><strong>Central</strong> leads on sales at $2.8M; <strong>North Asia</strong> has the best margin at 20%.</li>
+                <li>
+                  <strong>Technology</strong> drives profit even though Office Supplies moves more units — volume and
+                  profit are not the same story.
+                </li>
+                <li><strong>Southeast Asia</strong> sits at a 2% margin. That's the number worth a meeting.</li>
+              </ul>
+
+              <div class="case-links">
+                <a href="https://drive.google.com/drive/folders/1mOYiG1x8KqvLzyzbpG8NuErweJaxynJV" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="folder-open-outline"></ion-icon>
+                  <span>Project file</span>
+                </a>
+                <a href="https://www.kaggle.com/datasets/apoorvaappz/global-super-store-dataset" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="server-outline"></ion-icon>
+                  <span>Dataset</span>
+                </a>
+              </div>
+
+            </div>
+
+          </li>
+
+        </ul>
+
+      </article>
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="about-text">
+          <p class="contact-lead">Every dataset has a story. Tell me yours.</p>
+        </section>
+
+        <ul class="contact-icons">
+
+          <li>
+            <a href="mailto:abbasqulu.allahverdili@gmail.com" class="contact-icon" title="abbasqulu.allahverdili@gmail.com" aria-label="Email me">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/abbasallahverdili/" target="_blank" rel="noopener" class="contact-icon" title="LinkedIn" aria-label="LinkedIn profile">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="https://formspree.io/f/mjgnyodk" method="POST" class="form" data-form>
+
+            <!-- Formspree: label the email and stop bots -->
+            <input type="hidden" name="_subject" value="New message from abbasgulu.github.io">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="input-wrapper">
+              <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <!--
+    - #LIGHTBOX
+  -->
+  <div class="lightbox" data-lightbox-modal hidden>
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" data-lightbox-img>
+      <figcaption data-lightbox-cap></figcaption>
+    </figure>
+  </div>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
