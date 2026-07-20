@@ -2217,21 +2217,22 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .theme-toggle {
   position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 10;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
   color: var(--orange-yellow-crayola);
   box-shadow: var(--shadow-2);
   border: 1px solid var(--jet);
   cursor: pointer;
   transition: var(--transition-1);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .theme-toggle:hover { background: var(--bg-gradient-yellow-1); }
@@ -2250,6 +2251,23 @@ textarea.form-input::-webkit-resizer { display: none; }
     top: 24px;
     right: 24px;
   }
+}
+
+/* mobile: the profile card is full width, so tuck the toggle into the top-right
+   corner with a solid fill and a larger tap target that clears the card */
+@media (max-width: 580px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    width: 46px;
+    height: 46px;
+    background: var(--eerie-black-2);
+  }
+
+  /* keep the profile card clear of the floating toggle in its top-right corner */
+  .sidebar { padding-right: 58px; }
+
+  .sidebar.active { max-height: 460px; }
 }
 
 
