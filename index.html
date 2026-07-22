@@ -506,6 +506,71 @@
 
           <li class="case-item">
 
+            <figure class="case-img" style="background: #10141c;">
+              <img src="./assets/images/projects/boston-crime.jpg" alt="Crimes in Boston — exploratory analysis and severity prediction" loading="lazy">
+              <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/boston-crime-full.jpg" data-lightbox-caption="Crimes in Boston — EDA & severity prediction">
+                <ion-icon name="expand-outline"></ion-icon>
+                <span>View full size</span>
+              </button>
+            </figure>
+
+            <div class="case-body">
+
+              <h3 class="h3 case-title">Crimes in Boston</h3>
+              <p class="case-subline">EDA &amp; Severity Prediction</p>
+
+              <ul class="case-tags">
+                <li><span class="case-tag">Python</span></li>
+                <li><span class="case-tag">pandas</span></li>
+                <li><span class="case-tag">scikit-learn</span></li>
+                <li><span class="case-tag">Folium</span></li>
+              </ul>
+
+              <p class="case-text">
+                An end-to-end look at <strong>~319,000 Boston crime records</strong> (2015–2018): what happens, when, and
+                where — then a <strong>Random Forest</strong> testing whether time and place alone can predict how serious
+                an incident is. The hard part wasn't the model; it was Latin-1 encoding, partial years and invalid
+                coordinates.
+              </p>
+
+              <p class="case-subtitle">What the data showed</p>
+
+              <ul class="case-findings">
+                <li>
+                  Most "crime" isn't violent — top calls are vehicle response, medical aid and investigations.
+                  Serious offenses are only <strong>~19%</strong> of the data.
+                </li>
+                <li>
+                  Crime has a rhythm: it peaks on <strong>summer evenings (4–6pm)</strong> and stays active through
+                  weekend nights.
+                </li>
+                <li>
+                  Violence concentrates — shootings are 0.32% of incidents, but <strong>74% hit just 3 districts</strong>,
+                  overwhelmingly late at night.
+                </li>
+                <li>
+                  Using only time and place (no offense type, to avoid leakage), the model reached
+                  <strong>ROC-AUC 0.60</strong> — a modest but real signal.
+                </li>
+              </ul>
+
+              <div class="case-links">
+                <a href="https://www.kaggle.com/datasets/AnalyzeBoston/crimes-in-boston" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="server-outline"></ion-icon>
+                  <span>Dataset</span>
+                </a>
+                <a href="https://www.kaggle.com/code/abbasgulu/boston-crime-eda-severity-prediction" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span>Kaggle notebook</span>
+                </a>
+              </div>
+
+            </div>
+
+          </li>
+
+          <li class="case-item">
+
             <figure class="case-img" style="background: #274f3a;">
               <img src="./assets/images/projects/churn-dashboard.jpg" alt="Credit Card Churn Analysis — Power BI dashboard" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/churn-dashboard-full.jpg" data-lightbox-caption="Credit Card Churn Analysis — Power BI dashboard">
