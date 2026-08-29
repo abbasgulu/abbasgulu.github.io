@@ -2215,18 +2215,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   #THEME TOGGLE BUTTON
 \*-----------------------------------*/
 
-/* the theme + language buttons live together in a fixed group, top-right */
-.top-toggles {
+.theme-toggle {
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 20;
-  display: flex;
-  gap: 8px;
-}
-
-.theme-toggle,
-.lang-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2242,14 +2235,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   -webkit-tap-highlight-color: transparent;
 }
 
-.lang-toggle {
-  font-size: 15px;
-  font-weight: var(--fw-600);
-  letter-spacing: 0.3px;
-}
-
-.theme-toggle:hover,
-.lang-toggle:hover { background: var(--bg-gradient-yellow-1); }
+.theme-toggle:hover { background: var(--bg-gradient-yellow-1); }
 
 .theme-toggle ion-icon { font-size: 20px; }
 
@@ -2261,30 +2247,25 @@ textarea.form-input::-webkit-resizer { display: none; }
 [data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 @media (min-width: 1250px) {
-  .top-toggles {
+  .theme-toggle {
     top: 24px;
     right: 24px;
   }
 }
 
-/* mobile: the profile card is full width, so tuck the toggles into the top-right
-   corner with a larger tap target that clears the card */
+/* mobile: the profile card is full width, so tuck the toggle into the top-right
+   corner with a solid fill and a larger tap target that clears the card */
 @media (max-width: 580px) {
-  .top-toggles {
+  .theme-toggle {
     top: 10px;
     right: 10px;
-    gap: 6px;
-  }
-
-  .theme-toggle,
-  .lang-toggle {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     background: var(--eerie-black-2);
   }
 
-  /* keep the profile card clear of the two floating toggles */
-  .sidebar { padding-right: 104px; }
+  /* keep the profile card clear of the floating toggle in its top-right corner */
+  .sidebar { padding-right: 58px; }
 
   .sidebar.active { max-height: 460px; }
 }
@@ -2333,6 +2314,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   font-weight: var(--fw-300);
   line-height: 1.5;
   margin-bottom: 4px;
+  /* keep the org name and its date on one row: name left, date right */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
 }
 
 .credential-link {
