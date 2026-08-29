@@ -2215,11 +2215,18 @@ textarea.form-input::-webkit-resizer { display: none; }
   #THEME TOGGLE BUTTON
 \*-----------------------------------*/
 
-.theme-toggle {
+/* the theme + language buttons live together in a fixed group, top-right */
+.top-toggles {
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 20;
+  display: flex;
+  gap: 8px;
+}
+
+.theme-toggle,
+.lang-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2235,7 +2242,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   -webkit-tap-highlight-color: transparent;
 }
 
-.theme-toggle:hover { background: var(--bg-gradient-yellow-1); }
+.lang-toggle {
+  font-size: 15px;
+  font-weight: var(--fw-600);
+  letter-spacing: 0.3px;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover { background: var(--bg-gradient-yellow-1); }
 
 .theme-toggle ion-icon { font-size: 20px; }
 
@@ -2247,25 +2261,30 @@ textarea.form-input::-webkit-resizer { display: none; }
 [data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 @media (min-width: 1250px) {
-  .theme-toggle {
+  .top-toggles {
     top: 24px;
     right: 24px;
   }
 }
 
-/* mobile: the profile card is full width, so tuck the toggle into the top-right
-   corner with a solid fill and a larger tap target that clears the card */
+/* mobile: the profile card is full width, so tuck the toggles into the top-right
+   corner with a larger tap target that clears the card */
 @media (max-width: 580px) {
-  .theme-toggle {
+  .top-toggles {
     top: 10px;
     right: 10px;
-    width: 46px;
-    height: 46px;
+    gap: 6px;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
+    width: 44px;
+    height: 44px;
     background: var(--eerie-black-2);
   }
 
-  /* keep the profile card clear of the floating toggle in its top-right corner */
-  .sidebar { padding-right: 58px; }
+  /* keep the profile card clear of the two floating toggles */
+  .sidebar { padding-right: 104px; }
 
   .sidebar.active { max-height: 460px; }
 }

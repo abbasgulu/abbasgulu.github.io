@@ -62,10 +62,15 @@
 
 <body>
 
-  <button class="theme-toggle" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
-    <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
-    <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
-  </button>
+  <div class="top-toggles">
+    <button class="lang-toggle" data-lang-toggle aria-label="Switch language" title="Switch language">
+      <span data-lang-label>EN</span>
+    </button>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
+      <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+      <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+    </button>
+  </div>
 
   <!--
     - #MAIN
@@ -88,11 +93,11 @@
         <div class="info-content">
           <h1 class="name" title="Abbasgulu Allahverdili">Abbasgulu Allahverdili</h1>
 
-          <p class="title">Data Analyst</p>
+          <p class="title" data-i18n="hero.role">Data Analyst</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span data-i18n="sidebar.contacts">Show Contacts</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -145,9 +150,9 @@
 
         </ul>
 
-        <a href="./assets/doc/Abbasgulu-Allahverdili-CV.pdf" class="sidebar-cv-btn" download>
+        <a href="./assets/doc/CV_Abbasgulu_Allahverdili_ENG.pdf" class="sidebar-cv-btn" data-cv-link download>
           <ion-icon name="download-outline"></ion-icon>
-          <span>Download CV</span>
+          <span data-i18n="sidebar.downloadcv">Download CV</span>
         </a>
 
       </div>
@@ -170,19 +175,19 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link data-i18n="nav.about">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link data-i18n="nav.resume">Resume</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link data-i18n="nav.portfolio">Portfolio</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-i18n="nav.contact">Contact</button>
           </li>
 
         </ul>
@@ -197,11 +202,11 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title" data-i18n="about.title">About me</h2>
         </header>
 
         <section class="about-text">
-          <p>
+          <p data-i18n-html="about.intro">
             Data Analyst based in Baku, Azerbaijan. I work across the full data lifecycle — collecting, cleaning,
             exploring and modelling data with <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong> and
             <strong>Power BI</strong> — turning it into dashboards that answer real business questions.
@@ -215,7 +220,7 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">How I Work</h3>
+          <h3 class="h3 service-title" data-i18n="about.howiwork">How I Work</h3>
 
           <ul class="service-list">
 
@@ -226,9 +231,9 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title"><span class="step-num">1</span>Data Collection</h4>
+                <h4 class="h4 service-item-title"><span class="step-num">1</span><span data-i18n="svc.1.title">Data Collection</span></h4>
 
-                <p class="service-item-text">
+                <p class="service-item-text" data-i18n-html="svc.1.text">
                   Databases with <strong>SQL</strong>, the web with <strong>Python</strong> scrapers — automated to run
                   itself.
                 </p>
@@ -243,9 +248,9 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title"><span class="step-num">2</span>Data Cleaning</h4>
+                <h4 class="h4 service-item-title"><span class="step-num">2</span><span data-i18n="svc.2.title">Data Cleaning</span></h4>
 
-                <p class="service-item-text">
+                <p class="service-item-text" data-i18n-html="svc.2.text">
                   Missing values, duplicates and messy formats fixed in <strong>Python</strong> and
                   <strong>Excel</strong> — so the numbers hold up.
                 </p>
@@ -260,9 +265,9 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title"><span class="step-num">3</span>Exploratory Data Analysis</h4>
+                <h4 class="h4 service-item-title"><span class="step-num">3</span><span data-i18n="svc.3.title">Exploratory Data Analysis</span></h4>
 
-                <p class="service-item-text">
+                <p class="service-item-text" data-i18n-html="svc.3.text">
                   Patterns, outliers and relationships surfaced in <strong>Power BI</strong> dashboards you can read at
                   a glance.
                 </p>
@@ -277,9 +282,9 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title"><span class="step-num">4</span>Modelling &amp; Algorithms</h4>
+                <h4 class="h4 service-item-title"><span class="step-num">4</span><span data-i18n="svc.4.title">Modelling &amp; Algorithms</span></h4>
 
-                <p class="service-item-text">
+                <p class="service-item-text" data-i18n="svc.4.text">
                   Statistical methods and algorithms that explain what drives the numbers — and predict what's next.
                 </p>
               </div>
@@ -300,7 +305,7 @@
       <article class="resume" data-page="resume">
 
         <header>
-          <h2 class="h2 article-title">Resume</h2>
+          <h2 class="h2 article-title" data-i18n="resume.title">Resume</h2>
         </header>
 
         <section class="timeline">
@@ -310,18 +315,18 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Education</h3>
+            <h3 class="h3" data-i18n="resume.edu">Education</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Yildiz Technical University</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="edu.yildiz.title">Yildiz Technical University</h4>
 
-              <p class="timeline-org">BSc. Mathematical Engineering <span class="timeline-date">(2018 — 2022)</span></p>
+              <p class="timeline-org"><span data-i18n="edu.yildiz.deg">BSc. Mathematical Engineering</span> <span class="timeline-date">(2018 — 2022)</span></p>
 
-              <p class="timeline-text">
+              <p class="timeline-text" data-i18n="edu.yildiz.text">
                 A degree built on statistics, linear algebra, numerical methods and programming. It's where I learned to
                 turn a vague problem into a model, and a model into an answer someone can act on.
               </p>
@@ -339,18 +344,32 @@
               <ion-icon name="briefcase-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Experience</h3>
+            <h3 class="h3" data-i18n="resume.exp">Experience</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Teaching Assistant</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="exp.bir.title">Business Analyst (Intern)</h4>
 
-              <p class="timeline-org">Israel Azerbaijan Training Center <span class="timeline-date">(02/2023 — 05/2023)</span></p>
+              <p class="timeline-org"><span data-i18n="exp.bir.org">Bir Ecosystem — Baku, Azerbaijan</span> <span class="timeline-date">(08/2026 — <span data-i18n="date.present">Present</span>)</span></p>
 
-              <p class="timeline-text">
+              <p class="timeline-text" data-i18n="exp.bir.text">
+                Collecting and analysing data to surface customer needs, business trends and KPIs, and supporting the
+                reports and presentations that go to senior management. Also involved in requirements gathering, process
+                mapping and workflow analysis for new projects.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="exp.ta.title">Teaching Assistant (Intern)</h4>
+
+              <p class="timeline-org"><span data-i18n="exp.ta.org">Israel Azerbaijan Training Center</span> <span class="timeline-date">(02/2023 — 05/2023)</span></p>
+
+              <p class="timeline-text" data-i18n="exp.ta.text">
                 Supported the instructor on a data analytics course: walked students through Python, SQL and statistics
                 in the lab, reviewed their analyses, and broke down the concepts they got stuck on.
               </p>
@@ -359,11 +378,11 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Data Analyst Intern</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="exp.da.title">Data Analyst (Intern)</h4>
 
-              <p class="timeline-org">International Training &amp; Project Center <span class="timeline-date">(09/2021 — 03/2022)</span></p>
+              <p class="timeline-org"><span data-i18n="exp.da.org">International Training &amp; Project Center</span> <span class="timeline-date">(09/2021 — 03/2022)</span></p>
 
-              <p class="timeline-text">
+              <p class="timeline-text" data-i18n="exp.da.text">
                 Cleaned and analysed large datasets using statistical techniques, identified trends to generate
                 actionable insights, and designed reports and visualisations for stakeholders.
               </p>
@@ -381,10 +400,26 @@
               <ion-icon name="ribbon-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Certifications &amp; Awards</h3>
+            <h3 class="h3" data-i18n="resume.certs">Certifications &amp; Awards</h3>
           </div>
 
           <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Analyst Professional Certificate</h4>
+
+              <p class="timeline-org">IBM <span class="timeline-date">(07/2026)</span></p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Analytics</h4>
+
+              <p class="timeline-org">Handex <span class="timeline-date">(07/2026)</span></p>
+
+            </li>
 
             <li class="timeline-item">
 
@@ -392,7 +427,7 @@
 
               <p class="timeline-org">Data SoCool <span class="timeline-date">(05/2024)</span></p>
 
-              <span><a href="./assets/doc/Data-Science-with-Python-DataSoCool.jpg" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+              <span><a href="./assets/doc/Data-Science-with-Python-DataSoCool.jpg" target="_blank" rel="noopener" class="credential-link" data-i18n="resume.credential">Show credential</a></span>
 
             </li>
 
@@ -402,19 +437,19 @@
 
               <p class="timeline-org">Cisco Networking Academy · OpenEDG Python Institute <span class="timeline-date">(03/2023)</span></p>
 
-              <span><a href="./assets/doc/PCAP-Programming-Essentials-in-Python.pdf" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+              <span><a href="./assets/doc/PCAP-Programming-Essentials-in-Python.pdf" target="_blank" rel="noopener" class="credential-link" data-i18n="resume.credential">Show credential</a></span>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">
+              <h4 class="h4 timeline-item-title" data-i18n="award.tubitak.title">
                 Investigation of Brain Tumor Segmentation Using U-Net Architecture
               </h4>
 
-              <p class="timeline-org">TÜBİTAK · 2209-A Research Projects Programme <span class="timeline-date">(11/2022 — 11/2024)</span></p>
+              <p class="timeline-org"><span data-i18n="award.tubitak.org">TÜBİTAK · 2209-A Research Projects Programme</span> <span class="timeline-date">(11/2022 — 11/2024)</span></p>
 
-              <span><a href="./assets/doc/TUBITAK-2209A-Brain-Tumor-Segmentation.png" target="_blank" rel="noopener" class="credential-link">Show credential</a></span>
+              <span><a href="./assets/doc/TUBITAK-2209A-Brain-Tumor-Segmentation.png" target="_blank" rel="noopener" class="credential-link" data-i18n="resume.credential">Show credential</a></span>
 
             </li>
 
@@ -427,7 +462,7 @@
           <div class="skills-columns">
 
             <div class="skills-col">
-              <h3 class="h3 skills-title">Skills</h3>
+              <h3 class="h3 skills-title" data-i18n="resume.skills">Skills</h3>
               <ul class="skills-detail-list">
                 <li class="skills-detail-item">
                   <span class="skills-detail-name">Python</span>
@@ -457,25 +492,25 @@
             </div>
 
             <div class="skills-col">
-              <h3 class="h3 skills-title">Languages</h3>
+              <h3 class="h3 skills-title" data-i18n="resume.langs">Languages</h3>
               <ul class="language-list">
                 <li class="language-item">
-                  <span class="language-name">Azerbaijani</span>
-                  <span class="language-level">Native</span>
+                  <span class="language-name" data-i18n="lang.az">Azerbaijani</span>
+                  <span class="language-level" data-i18n="lang.az.level">Native</span>
                 </li>
                 <li class="language-item">
-                  <span class="language-name">Turkish</span>
-                  <span class="language-level">Native</span>
+                  <span class="language-name" data-i18n="lang.tr">Turkish</span>
+                  <span class="language-level">C1</span>
                 </li>
                 <li class="language-item">
-                  <span class="language-name">English</span>
-                  <span class="language-level">Professional working</span>
+                  <span class="language-name" data-i18n="lang.en">English</span>
+                  <span class="language-level">B2</span>
                 </li>
               </ul>
 
-              <a href="./assets/doc/Abbasgulu-Allahverdili-CV.pdf" class="resume-cv-btn" download>
+              <a href="./assets/doc/CV_Abbasgulu_Allahverdili_ENG.pdf" class="resume-cv-btn" data-cv-link download>
                 <ion-icon name="download-outline"></ion-icon>
-                <span>Download full CV (PDF)</span>
+                <span data-i18n="resume.downloadcv">Download full CV (PDF)</span>
               </a>
             </div>
 
@@ -493,11 +528,11 @@
       <article class="portfolio" data-page="portfolio">
 
         <header>
-          <h2 class="h2 article-title">Portfolio</h2>
+          <h2 class="h2 article-title" data-i18n="portfolio.title">Portfolio</h2>
         </header>
 
         <section class="about-text">
-          <p>
+          <p data-i18n="portfolio.intro">
             Projects I've built — data collection, analysis and dashboards.
           </p>
         </section>
@@ -510,14 +545,14 @@
               <img src="./assets/images/projects/hr-analytics.jpg" alt="HR Workforce Analytics — Oracle SQL and Python" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/hr-analytics-full.jpg" data-lightbox-caption="HR Workforce Analytics — Oracle SQL & Python">
                 <ion-icon name="expand-outline"></ion-icon>
-                <span>View full size</span>
+                <span data-i18n="link.viewfull">View full size</span>
               </button>
             </figure>
 
             <div class="case-body">
 
               <h3 class="h3 case-title">HR Workforce Analytics</h3>
-              <p class="case-subline">Oracle SQL &amp; Python — End to End</p>
+              <p class="case-subline" data-i18n-html="hr.subline">Oracle SQL &amp; Python — End to End</p>
 
               <ul class="case-tags">
                 <li><span class="case-tag">Oracle 18c</span></li>
@@ -526,16 +561,16 @@
                 <li><span class="case-tag">Data Engineering</span></li>
               </ul>
 
-              <p class="case-text">
+              <p class="case-text" data-i18n="hr.text">
                 A synthetic <strong>10,000-employee organisation</strong> built in Oracle, then analysed end to end.
                 The heavy computation — window functions, hierarchical <strong>CONNECT BY</strong> queries, percentiles —
                 runs <strong>in the database</strong>; Python handles interpretation. Every query lives in <code>sql/</code>
                 as a reviewable file, not a string in a notebook.
               </p>
 
-              <p class="case-subtitle">What the analysis showed</p>
+              <p class="case-subtitle" data-i18n="hr.showed">What the analysis showed</p>
 
-              <ul class="case-findings">
+              <ul class="case-findings" data-i18n-html="hr.findings">
                 <li>
                   Promotions are driven by <strong>opportunity, not just performance</strong> — one department promotes
                   14.5% of staff simply because it has 6.6 juniors per senior seat.
@@ -553,11 +588,11 @@
               <div class="case-links">
                 <a href="https://github.com/abbasgulu/hr-workforce-analytics" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="logo-github"></ion-icon>
-                  <span>GitHub repo</span>
+                  <span data-i18n="link.github">GitHub repo</span>
                 </a>
                 <a href="https://github.com/abbasgulu/hr-workforce-analytics/blob/main/notebooks/01_analysis.ipynb" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="document-text-outline"></ion-icon>
-                  <span>Analysis notebook</span>
+                  <span data-i18n="link.notebook">Analysis notebook</span>
                 </a>
               </div>
 
@@ -571,14 +606,14 @@
               <img src="./assets/images/projects/boston-crime.jpg" alt="Crimes in Boston — exploratory analysis and severity prediction" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/boston-crime-full.jpg" data-lightbox-caption="Crimes in Boston — EDA & severity prediction">
                 <ion-icon name="expand-outline"></ion-icon>
-                <span>View full size</span>
+                <span data-i18n="link.viewfull">View full size</span>
               </button>
             </figure>
 
             <div class="case-body">
 
               <h3 class="h3 case-title">Crimes in Boston</h3>
-              <p class="case-subline">EDA &amp; Severity Prediction</p>
+              <p class="case-subline" data-i18n-html="boston.subline">EDA &amp; Severity Prediction</p>
 
               <ul class="case-tags">
                 <li><span class="case-tag">Python</span></li>
@@ -587,16 +622,16 @@
                 <li><span class="case-tag">Folium</span></li>
               </ul>
 
-              <p class="case-text">
+              <p class="case-text" data-i18n="boston.text">
                 An end-to-end look at <strong>~319,000 Boston crime records</strong> (2015–2018): what happens, when, and
                 where — then a <strong>Random Forest</strong> testing whether time and place alone can predict how serious
                 an incident is. The hard part wasn't the model; it was Latin-1 encoding, partial years and invalid
                 coordinates.
               </p>
 
-              <p class="case-subtitle">What the data showed</p>
+              <p class="case-subtitle" data-i18n="boston.showed">What the data showed</p>
 
-              <ul class="case-findings">
+              <ul class="case-findings" data-i18n-html="boston.findings">
                 <li>
                   Most "crime" isn't violent — top calls are vehicle response, medical aid and investigations.
                   Serious offenses are only <strong>~19%</strong> of the data.
@@ -618,11 +653,11 @@
               <div class="case-links">
                 <a href="https://www.kaggle.com/datasets/AnalyzeBoston/crimes-in-boston" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="server-outline"></ion-icon>
-                  <span>Dataset</span>
+                  <span data-i18n="link.dataset">Dataset</span>
                 </a>
                 <a href="https://www.kaggle.com/code/abbasgulu/boston-crime-eda-severity-prediction" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="document-text-outline"></ion-icon>
-                  <span>Kaggle notebook</span>
+                  <span data-i18n="link.kagglenb">Kaggle notebook</span>
                 </a>
               </div>
 
@@ -636,14 +671,14 @@
               <img src="./assets/images/projects/churn-dashboard.jpg" alt="Credit Card Churn Analysis — Power BI dashboard" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/churn-dashboard-full.jpg" data-lightbox-caption="Credit Card Churn Analysis — Power BI dashboard">
                 <ion-icon name="expand-outline"></ion-icon>
-                <span>View full size</span>
+                <span data-i18n="link.viewfull">View full size</span>
               </button>
             </figure>
 
             <div class="case-body">
 
               <h3 class="h3 case-title">Credit Card Churn</h3>
-              <p class="case-subline">Interactive Power BI Dashboard</p>
+              <p class="case-subline" data-i18n-html="churn.subline">Interactive Power BI Dashboard</p>
 
               <ul class="case-tags">
                 <li><span class="case-tag">Power BI</span></li>
@@ -652,15 +687,15 @@
                 <li><span class="case-tag">Slicers</span></li>
               </ul>
 
-              <p class="case-text">
+              <p class="case-text" data-i18n="churn.text">
                 A dashboard exploring why credit card customers leave — and where retention effort pays off.
                 <strong>Power Query</strong> for cleaning, <strong>DAX</strong> for the measures, and slicers that filter
                 the whole report by gender, card, and income. <strong>10,127 customers</strong> analysed.
               </p>
 
-              <p class="case-subtitle">What the data showed</p>
+              <p class="case-subtitle" data-i18n="churn.showed">What the data showed</p>
 
-              <ul class="case-findings">
+              <ul class="case-findings" data-i18n-html="churn.findings">
                 <li>
                   Overall churn is <strong>16.07%</strong> — but customers <strong>inactive for 3 months</strong> churn
                   the most, an early-warning signal worth acting on.
@@ -675,11 +710,11 @@
               <div class="case-links">
                 <a href="https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="server-outline"></ion-icon>
-                  <span>Dataset</span>
+                  <span data-i18n="link.dataset">Dataset</span>
                 </a>
                 <a href="https://drive.google.com/file/d/16fnfcs-xMDs2xJmWliApIJk1eDy3ct5c/view" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="folder-open-outline"></ion-icon>
-                  <span>Project file</span>
+                  <span data-i18n="link.projectfile">Project file</span>
                 </a>
               </div>
 
@@ -693,14 +728,14 @@
               <img src="./assets/images/projects/oxu-dataset.jpg" alt="Oxu.az News Dataset — 52,946 Azerbaijani news articles" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/oxu-dataset-full.jpg" data-lightbox-caption="Oxu.az News Dataset — 52,946 Azerbaijani news articles">
                 <ion-icon name="expand-outline"></ion-icon>
-                <span>View full size</span>
+                <span data-i18n="link.viewfull">View full size</span>
               </button>
             </figure>
 
             <div class="case-body">
 
               <h3 class="h3 case-title">Oxu.az</h3>
-              <p class="case-subline">News Dataset — 52,946 articles</p>
+              <p class="case-subline" data-i18n-html="oxu.subline">News Dataset — 52,946 articles</p>
 
               <ul class="case-tags">
                 <li><span class="case-tag">Python</span></li>
@@ -709,15 +744,15 @@
                 <li><span class="case-tag">Kaggle</span></li>
               </ul>
 
-              <p class="case-text">
+              <p class="case-text" data-i18n="oxu.text">
                 Local-language datasets are scarce, so I built one. A Python pipeline walks the archives of 13
                 categories and collects the title, date, author and reader reactions for every article published since
                 2013 — <strong>52,946 articles</strong> in total.
               </p>
 
-              <p class="case-subtitle">What the analysis showed</p>
+              <p class="case-subtitle" data-i18n="oxu.showed">What the analysis showed</p>
 
-              <ul class="case-findings">
+              <ul class="case-findings" data-i18n-html="oxu.findings">
                 <li>
                   <strong>Sports</strong> is the most written-about category (5,812 articles), but
                   <strong>Society</strong> is the most read — editorial focus and audience interest don't line up.
@@ -739,7 +774,7 @@
                 </a>
                 <a href="https://www.kaggle.com/code/abbasgulu/oxu-az-news-dataset-comprehensive-eda-insights" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="document-text-outline"></ion-icon>
-                  <span>EDA notebook</span>
+                  <span data-i18n="link.edanb">EDA notebook</span>
                 </a>
               </div>
 
@@ -753,14 +788,14 @@
               <img src="./assets/images/projects/superstore-dashboard.jpg" alt="Global Superstore interactive Excel dashboard" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/superstore-dashboard-full.jpg" data-lightbox-caption="Global Superstore — interactive Excel dashboard">
                 <ion-icon name="expand-outline"></ion-icon>
-                <span>View full size</span>
+                <span data-i18n="link.viewfull">View full size</span>
               </button>
             </figure>
 
             <div class="case-body">
 
               <h3 class="h3 case-title">Global Superstore</h3>
-              <p class="case-subline">Interactive Excel Dashboard</p>
+              <p class="case-subline" data-i18n-html="superstore.subline">Interactive Excel Dashboard</p>
 
               <ul class="case-tags">
                 <li><span class="case-tag">Excel</span></li>
@@ -769,15 +804,15 @@
                 <li><span class="case-tag">DAX</span></li>
               </ul>
 
-              <p class="case-text">
+              <p class="case-text" data-i18n="superstore.text">
                 A fully interactive dashboard on the Global Superstore dataset: <strong>Power Query</strong> for
                 cleaning and transformation, <strong>Power Pivot and DAX</strong> for the model and measures,
                 PivotCharts and slicers for the front end.
               </p>
 
-              <p class="case-subtitle">What the data showed</p>
+              <p class="case-subtitle" data-i18n="superstore.showed">What the data showed</p>
 
-              <ul class="case-findings">
+              <ul class="case-findings" data-i18n-html="superstore.findings">
                 <li><strong>Central</strong> leads on sales at $2.8M; <strong>North Asia</strong> has the best margin at 20%.</li>
                 <li>
                   <strong>Technology</strong> drives profit even though Office Supplies moves more units — volume and
@@ -789,11 +824,11 @@
               <div class="case-links">
                 <a href="https://drive.google.com/drive/folders/1mOYiG1x8KqvLzyzbpG8NuErweJaxynJV" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="folder-open-outline"></ion-icon>
-                  <span>Project file</span>
+                  <span data-i18n="link.projectfile">Project file</span>
                 </a>
                 <a href="https://www.kaggle.com/datasets/apoorvaappz/global-super-store-dataset" target="_blank" rel="noopener" class="case-link">
                   <ion-icon name="server-outline"></ion-icon>
-                  <span>Dataset</span>
+                  <span data-i18n="link.dataset">Dataset</span>
                 </a>
               </div>
 
@@ -813,11 +848,11 @@
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title" data-i18n="contact.title">Contact</h2>
         </header>
 
         <section class="about-text">
-          <p class="contact-lead">Every dataset has a story. Tell me yours.</p>
+          <p class="contact-lead" data-i18n="contact.lead">Every dataset has a story. Tell me yours.</p>
         </section>
 
         <ul class="contact-icons">
@@ -838,7 +873,7 @@
 
         <section class="contact-form">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <h3 class="h3 form-title" data-i18n="contact.formtitle">Contact Form</h3>
 
           <form action="https://formspree.io/f/mjgnyodk" method="POST" class="form" data-form>
 
@@ -847,16 +882,16 @@
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
             <div class="input-wrapper">
-              <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="name" class="form-input" placeholder="Full name" data-i18n-ph="form.name" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" data-i18n-ph="form.email" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Your Message" data-i18n-ph="form.message" required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
+              <span data-i18n="form.send">Send Message</span>
             </button>
 
           </form>
@@ -886,6 +921,7 @@
   <!--
     - custom js link
   -->
+  <script src="./assets/js/i18n.js"></script>
   <script src="./assets/js/script.js"></script>
 
   <!--
