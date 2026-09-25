@@ -2267,7 +2267,26 @@ textarea.form-input::-webkit-resizer { display: none; }
   /* keep the profile card clear of the floating toggle in its top-right corner */
   .sidebar { padding-right: 58px; }
 
+  /* the "show contacts" arrow normally sits in the card's top-right corner, which on
+     phones is flush against the theme toggle - move it to the bottom-right corner */
+  .info_more-btn {
+    top: auto;
+    bottom: -15px;
+    right: -58px;
+    border-radius: 15px 0;
+  }
+
   .sidebar.active { max-height: 460px; }
+}
+
+/* tablets: same clash - the "Show Contacts" pill sits 3px under the theme toggle,
+   so it moves to the card's bottom-right corner here as well */
+@media (min-width: 581px) and (max-width: 1249px) {
+  .info_more-btn {
+    top: auto;
+    bottom: -30px;
+    border-radius: 15px 0;
+  }
 }
 
 
