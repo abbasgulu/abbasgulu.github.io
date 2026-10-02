@@ -2215,9 +2215,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   #THEME TOGGLE BUTTON
 \*-----------------------------------*/
 
-/* theme + language buttons sit together in one fixed group, top-right */
+/* theme + language buttons sit together at the top-right of the page, like a site
+   header: they scroll away with the page instead of floating over the content */
 .top-toggles {
-  position: fixed;
+  position: absolute;
   top: 14px;
   right: 14px;
   z-index: 20;
@@ -2268,8 +2269,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 }
 
-/* mobile: the profile card is full width, so tuck the toggle into the top-right
-   corner with a solid fill and a larger tap target that clears the card */
+/* mobile: the buttons get their own row above the profile card */
 @media (max-width: 580px) {
   .top-toggles {
     top: 10px;
@@ -2284,15 +2284,13 @@ textarea.form-input::-webkit-resizer { display: none; }
     background: var(--eerie-black-2);
   }
 
-  /* keep the profile card clear of the two floating buttons in its top-right corner */
-  .sidebar { padding-right: 106px; }
+  main { margin-top: 66px; }
 
-  /* the "show contacts" arrow normally sits in the card's top-right corner, which on
-     phones is flush against the theme toggle - move it to the bottom-right corner */
+  /* the "show contacts" arrow sits in the card's bottom-right corner on phones */
   .info_more-btn {
     top: auto;
     bottom: -15px;
-    right: -106px;
+    right: -15px;
     border-radius: 15px 0;
   }
 
