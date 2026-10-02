@@ -146,8 +146,9 @@ if (lightbox && lightboxImg) {
 
 
 // language: English is written in index.html, Azerbaijani comes from i18n.js.
-// The language was already picked in <head> (saved choice, else the browser's language);
-// here the text is swapped and the EN/AZ button switches between the two.
+// Every translated element holds BOTH languages, stacked in the same spot, and only
+// the active one is visible. Each box is therefore always as big as the longer of the
+// two versions, so switching EN <-> AZ never changes the size or position of anything.
 (function () {
   if (typeof I18N_AZ === "undefined") return;
 
@@ -155,38 +156,64 @@ if (lightbox && lightboxImg) {
   const langBtn = document.querySelector("[data-lang-toggle]");
   const metaDesc = document.querySelector('meta[name="description"]');
 
-  // remember each element's English so switching back needs no second copy
-  const english = new Map();
-  const remember = function (el, kind) {
-    if (english.has(el)) return;
-    english.set(el, kind === "text" ? el.textContent
-      : kind === "html" ? el.innerHTML
-      : kind === "ph" ? el.getAttribute("placeholder")
-      : el.getAttribute("data-lightbox-caption"));
+  const version = function (lang, content, isHtml) {
+    const v = document.createElement("span");
+    v.className = "i18n-v";
+    v.setAttribute("data-l", lang);
+    v.setAttribute("lang", lang);
+    if (isHtml) v.innerHTML = content; else v.textContent = content;
+    return v;
   };
-  const groups = [
-    ["data-i18n", "text"], ["data-i18n-html", "html"],
-    ["data-i18n-ph", "ph"], ["data-i18n-cap", "cap"]
-  ];
-  groups.forEach(function (g) {
-    document.querySelectorAll("[" + g[0] + "]").forEach(function (el) { remember(el, g[1]); });
+
+  // plain text and inline html: both versions go inside the element
+  [["data-i18n", false], ["data-i18n-html", true]].forEach(function (g) {
+    document.querySelectorAll("[" + g[0] + "]").forEach(function (el) {
+      const az = I18N_AZ[el.getAttribute(g[0])];
+      if (az == null) return;                          // missing key: English only
+
+      if (el.tagName === "UL") {
+        // a list can't hold spans, so stack two copies of the list instead
+        const wrap = document.createElement("div");
+        wrap.className = "i18n-stack i18n-block";
+        const azList = el.cloneNode(false);
+        azList.innerHTML = az;
+        el.classList.add("i18n-v"); el.setAttribute("data-l", "en"); el.setAttribute("lang", "en");
+        azList.classList.add("i18n-v"); azList.setAttribute("data-l", "az"); azList.setAttribute("lang", "az");
+        el.parentNode.insertBefore(wrap, el);
+        wrap.appendChild(el);
+        wrap.appendChild(azList);
+        return;
+      }
+
+      const en = g[1] ? el.innerHTML.trim() : el.textContent.trim();
+      const stack = document.createElement("span");
+      stack.className = "i18n-stack";
+      stack.appendChild(version("en", en, g[1]));
+      stack.appendChild(version("az", az, g[1]));
+      el.textContent = "";
+      el.appendChild(stack);
+    });
+  });
+
+  // things that can't be stacked (placeholders, image captions) are swapped instead
+  const swaps = [];
+  [["data-i18n-ph", "placeholder"], ["data-i18n-cap", "data-lightbox-caption"]].forEach(function (g) {
+    document.querySelectorAll("[" + g[0] + "]").forEach(function (el) {
+      swaps.push({ el: el, attr: g[1], en: el.getAttribute(g[1]), az: I18N_AZ[el.getAttribute(g[0])] });
+    });
   });
   const englishTitle = document.title;
   const englishDesc = metaDesc ? metaDesc.getAttribute("content") : "";
 
   const apply = function (lang) {
     const az = lang === "az";
-    groups.forEach(function (g) {
-      document.querySelectorAll("[" + g[0] + "]").forEach(function (el) {
-        const value = az ? I18N_AZ[el.getAttribute(g[0])] : english.get(el);
-        if (value == null) return;                       // missing key: keep English
-        if (g[1] === "text") el.textContent = value;
-        else if (g[1] === "html") el.innerHTML = value;
-        else if (g[1] === "ph") el.setAttribute("placeholder", value);
-        else el.setAttribute("data-lightbox-caption", value);
-      });
-    });
+    root.setAttribute("lang", lang);
+    root.setAttribute("data-lang", lang);           // CSS shows the matching version
 
+    swaps.forEach(function (s) {
+      const value = az && s.az != null ? s.az : s.en;
+      if (value != null) s.el.setAttribute(s.attr, value);
+    });
     document.title = az ? I18N_AZ["meta.title"] : englishTitle;
     if (metaDesc) metaDesc.setAttribute("content", az ? I18N_AZ["meta.desc"] : englishDesc);
 
@@ -203,9 +230,6 @@ if (lightbox && lightboxImg) {
       langBtn.setAttribute("title", az ? "Switch to English" : "Azərbaycan dilinə keç");
       langBtn.setAttribute("aria-label", az ? "Switch to English" : "Dili Azərbaycan dilinə dəyiş");
     }
-
-    root.setAttribute("lang", lang);
-    root.setAttribute("data-lang", lang);
   };
 
   apply(root.getAttribute("data-lang") === "az" ? "az" : "en");

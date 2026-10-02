@@ -2860,9 +2860,65 @@ html.i18n-pending body { visibility: hidden; }
 
 /* Azerbaijani: the browser's automatic capitalising turns "i" into "I" instead of "İ"
    and capitalises "və", so in AZ the text is written with its own correct casing */
-html[lang="az"] .h2,
-html[lang="az"] .h3,
-html[lang="az"] .h4,
-html[lang="az"] .h5,
-html[lang="az"] .form-btn,
-html[lang="az"] .case-subtitle { text-transform: none; }
+.h2 .i18n-v[data-l="az"],
+.h3 .i18n-v[data-l="az"],
+.h4 .i18n-v[data-l="az"],
+.h5 .i18n-v[data-l="az"],
+.form-btn .i18n-v[data-l="az"],
+.case-subtitle .i18n-v[data-l="az"] { text-transform: none; }
+
+
+/*-----------------------------------*\
+  #LANGUAGES - both versions in the same spot
+\*-----------------------------------*/
+
+/* each translated element holds the English and the Azerbaijani text on top of each
+   other; the hidden one still takes up room, so every box is as big as the longer
+   language and switching EN <-> AZ moves nothing */
+html .i18n-stack {
+  display: inline-grid;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+html .i18n-stack.i18n-block { display: grid; }
+
+/* the wrappers look exactly like the text they hold, so older "span" rules
+   (the date colour, the "Show Contacts" display switch) don't reach them */
+html .i18n-stack,
+html .i18n-v {
+  color: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: inherit;
+}
+
+.i18n-stack > .i18n-v {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+html:not([data-lang="az"]) .i18n-v[data-l="az"],
+html[data-lang="az"] .i18n-v[data-l="en"] { visibility: hidden; }
+
+/* organisation + date rows keep the name left and the date right inside each version */
+.timeline-org > .i18n-stack { display: grid; width: 100%; }
+
+.timeline-org .i18n-v {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+/* where the box is wider than the shorter language, keep that text where the eye expects it */
+.navbar-link .i18n-v,
+.form-btn .i18n-v,
+.sidebar-cv-btn .i18n-v,
+.resume-cv-btn .i18n-v,
+.case-img-zoom .i18n-v,
+.case-tag .i18n-v,
+.info_more-btn .i18n-v { text-align: center; }
+
+.language-level .i18n-v { text-align: right; }
