@@ -540,6 +540,74 @@
 
           <li class="case-item">
 
+            <figure class="case-img" style="background: linear-gradient(#0e1420, #090d15);">
+              <img src="./assets/images/projects/credit-preapproval.jpg" alt="Credit Pre-Approval Engine — Oracle SQL, LightGBM and Tableau" loading="lazy">
+              <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/credit-preapproval-full.jpg" data-lightbox-caption="Credit Pre-Approval Engine — all four Tableau dashboard pages">
+                <ion-icon name="expand-outline"></ion-icon>
+                <span>View full size</span>
+              </button>
+            </figure>
+
+            <div class="case-body">
+
+              <h3 class="h3 case-title">Credit Pre-Approval Engine</h3>
+              <p class="case-subline">Oracle SQL, LightGBM &amp; Tableau — End to End</p>
+
+              <ul class="case-tags">
+                <li><span class="case-tag">Oracle SQL</span></li>
+                <li><span class="case-tag">Python</span></li>
+                <li><span class="case-tag">LightGBM</span></li>
+                <li><span class="case-tag">SHAP</span></li>
+                <li><span class="case-tag">Tableau</span></li>
+              </ul>
+
+              <p class="case-text">
+                How a lender decides a loan application — yes or no, how much, and why — built end to end on public
+                Home Credit data. <strong>58.5M raw rows</strong> are loaded into Oracle and summarised into an
+                88-column feature table, a <strong>calibrated LightGBM</strong> model estimates the probability of
+                default, and a decision engine approves with a limit or declines with reasons. Every rule lives in a
+                table, not in code, and the whole pipeline runs with <strong>one command</strong>, checked by 36
+                data-quality and 12 decision checks.
+              </p>
+
+              <p class="case-subtitle">What the analysis showed</p>
+
+              <ul class="case-findings">
+                <li>
+                  Declining a third of applicants avoided <strong>61.8% of all repayment trouble</strong>: 4.7% of
+                  approved clients had trouble, against 14.5% of declined ones.
+                </li>
+                <li>
+                  LightGBM beat a classic scorecard on clients never used for any choice: <strong>Gini 0.572 vs
+                  0.504</strong>, with the calibrated average PD within 0.1 pp of the actual default rate.
+                </li>
+                <li>
+                  The debt rule (5 × income) protects affordability, not risk — clients it declines alone have about
+                  the same trouble rate as approved ones (5.1% vs 4.7%).
+                </li>
+                <li>
+                  Every risk decline names the <strong>three facts that raised the risk most</strong> (SHAP); the
+                  external credit score is among them in 87% of cases.
+                </li>
+              </ul>
+
+              <div class="case-links">
+                <a href="https://github.com/abbasgulu/credit-preapproval-engine" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span>GitHub repo</span>
+                </a>
+                <a href="https://public.tableau.com/app/profile/abbasgulu.allahverdili/viz/CreditPre-ApprovalEngine/1-Ataglance" target="_blank" rel="noopener" class="case-link">
+                  <ion-icon name="bar-chart-outline"></ion-icon>
+                  <span>Tableau dashboard</span>
+                </a>
+              </div>
+
+            </div>
+
+          </li>
+
+          <li class="case-item">
+
             <figure class="case-img" style="background: #102238;">
               <img src="./assets/images/projects/hr-analytics.jpg" alt="HR Workforce Analytics — Oracle SQL and Python" loading="lazy">
               <button class="case-img-zoom" type="button" data-lightbox="./assets/images/projects/full/hr-analytics-full.jpg" data-lightbox-caption="HR Workforce Analytics — Oracle SQL & Python">
