@@ -33,40 +33,42 @@ if (form && formBtn) {
 }
 
 
-// page navigation variables
+// page navigation: each page has its own address (#about, #resume, #portfolio, #contact)
+// so a link can open a page directly and the browser's back button works
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
+const PAGE_NAMES = ["about", "resume", "portfolio", "contact"];
 
-// add event to all nav links
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+const showPage = function (name, scroll) {
+  if (PAGE_NAMES.indexOf(name) === -1) name = "about";
 
-    const target = this.innerHTML.trim().toLowerCase();
-
-    for (let j = 0; j < pages.length; j++) {
-      if (target === pages[j].dataset.page) {
-        pages[j].classList.add("active");
-      } else {
-        pages[j].classList.remove("active");
-      }
-    }
-
-    for (let j = 0; j < navigationLinks.length; j++) {
-      if (navigationLinks[j] === this) {
-        navigationLinks[j].classList.add("active");
-      } else {
-        navigationLinks[j].classList.remove("active");
-      }
-    }
-
-    // the sidebar is a profile card: only show it on About
-    const main = document.querySelector("main");
-    if (main) main.setAttribute("data-active-page", target);
-
-    window.scrollTo(0, 0);
-
+  pages.forEach(function (page) {
+    page.classList.toggle("active", page.dataset.page === name);
   });
-}
+  navigationLinks.forEach(function (link) {
+    link.classList.toggle("active", link.dataset.navTarget === name);
+  });
+
+  // the sidebar is a profile card: only show it on About
+  const main = document.querySelector("main");
+  if (main) main.setAttribute("data-active-page", name);
+
+  if (scroll !== false) window.scrollTo(0, 0);
+};
+
+navigationLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    const target = this.dataset.navTarget;
+    if (location.hash === "#" + target) showPage(target);
+    else location.hash = target;            // fires hashchange -> showPage
+  });
+});
+
+window.addEventListener("hashchange", function () {
+  showPage(location.hash.slice(1));
+});
+
+showPage(location.hash.slice(1) || "about", false);
 
 
 // theme toggle: remembers the choice, otherwise follows the OS setting
@@ -89,12 +91,6 @@ try {
   });
 } catch (e) { /* older browser */ }
 
-// set the initial page state so the sidebar shows correctly on first load
-(function () {
-  const main = document.querySelector("main");
-  const active = document.querySelector("article[data-page].active");
-  if (main && active) main.setAttribute("data-active-page", active.dataset.page);
-})();
 
 
 // lightbox: full-size view for project images (the dashboard is unreadable at card size)
@@ -147,3 +143,79 @@ if (lightbox && lightboxImg) {
 
 }
 
+
+
+// language: English is written in index.html, Azerbaijani comes from i18n.js.
+// The language was already picked in <head> (saved choice, else the browser's language);
+// here the text is swapped and the EN/AZ button switches between the two.
+(function () {
+  if (typeof I18N_AZ === "undefined") return;
+
+  const root = document.documentElement;
+  const langBtn = document.querySelector("[data-lang-toggle]");
+  const metaDesc = document.querySelector('meta[name="description"]');
+
+  // remember each element's English so switching back needs no second copy
+  const english = new Map();
+  const remember = function (el, kind) {
+    if (english.has(el)) return;
+    english.set(el, kind === "text" ? el.textContent
+      : kind === "html" ? el.innerHTML
+      : kind === "ph" ? el.getAttribute("placeholder")
+      : el.getAttribute("data-lightbox-caption"));
+  };
+  const groups = [
+    ["data-i18n", "text"], ["data-i18n-html", "html"],
+    ["data-i18n-ph", "ph"], ["data-i18n-cap", "cap"]
+  ];
+  groups.forEach(function (g) {
+    document.querySelectorAll("[" + g[0] + "]").forEach(function (el) { remember(el, g[1]); });
+  });
+  const englishTitle = document.title;
+  const englishDesc = metaDesc ? metaDesc.getAttribute("content") : "";
+
+  const apply = function (lang) {
+    const az = lang === "az";
+    groups.forEach(function (g) {
+      document.querySelectorAll("[" + g[0] + "]").forEach(function (el) {
+        const value = az ? I18N_AZ[el.getAttribute(g[0])] : english.get(el);
+        if (value == null) return;                       // missing key: keep English
+        if (g[1] === "text") el.textContent = value;
+        else if (g[1] === "html") el.innerHTML = value;
+        else if (g[1] === "ph") el.setAttribute("placeholder", value);
+        else el.setAttribute("data-lightbox-caption", value);
+      });
+    });
+
+    document.title = az ? I18N_AZ["meta.title"] : englishTitle;
+    if (metaDesc) metaDesc.setAttribute("content", az ? I18N_AZ["meta.desc"] : englishDesc);
+
+    // the CV that matches the language
+    if (typeof CV_FILES !== "undefined") {
+      document.querySelectorAll("[data-cv-link]").forEach(function (a) {
+        a.setAttribute("href", CV_FILES[lang] || CV_FILES.en);
+      });
+    }
+
+    // the button shows the language you can switch TO
+    if (langBtn) {
+      langBtn.textContent = az ? "EN" : "AZ";
+      langBtn.setAttribute("title", az ? "Switch to English" : "Azərbaycan dilinə keç");
+      langBtn.setAttribute("aria-label", az ? "Switch to English" : "Dili Azərbaycan dilinə dəyiş");
+    }
+
+    root.setAttribute("lang", lang);
+    root.setAttribute("data-lang", lang);
+  };
+
+  apply(root.getAttribute("data-lang") === "az" ? "az" : "en");
+  root.classList.remove("i18n-pending");
+
+  if (langBtn) {
+    langBtn.addEventListener("click", function () {
+      const next = root.getAttribute("data-lang") === "az" ? "en" : "az";
+      apply(next);
+      try { localStorage.setItem("lang", next); } catch (e) { /* storage blocked */ }
+    });
+  }
+})();

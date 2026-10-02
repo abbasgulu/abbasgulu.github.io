@@ -2215,11 +2215,18 @@ textarea.form-input::-webkit-resizer { display: none; }
   #THEME TOGGLE BUTTON
 \*-----------------------------------*/
 
-.theme-toggle {
+/* theme + language buttons sit together in one fixed group, top-right */
+.top-toggles {
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 20;
+  display: flex;
+  gap: 8px;
+}
+
+.theme-toggle,
+.lang-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2235,7 +2242,15 @@ textarea.form-input::-webkit-resizer { display: none; }
   -webkit-tap-highlight-color: transparent;
 }
 
-.theme-toggle:hover { background: var(--bg-gradient-yellow-1); }
+.theme-toggle:hover,
+.lang-toggle:hover { background: var(--bg-gradient-yellow-1); }
+
+.lang-toggle {
+  font-family: var(--ff-poppins);
+  font-size: 14px;
+  font-weight: var(--fw-500);
+  letter-spacing: 0.5px;
+}
 
 .theme-toggle ion-icon { font-size: 20px; }
 
@@ -2247,7 +2262,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 [data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 @media (min-width: 1250px) {
-  .theme-toggle {
+  .top-toggles {
     top: 24px;
     right: 24px;
   }
@@ -2256,23 +2271,28 @@ textarea.form-input::-webkit-resizer { display: none; }
 /* mobile: the profile card is full width, so tuck the toggle into the top-right
    corner with a solid fill and a larger tap target that clears the card */
 @media (max-width: 580px) {
-  .theme-toggle {
+  .top-toggles {
     top: 10px;
     right: 10px;
+    gap: 6px;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
     width: 46px;
     height: 46px;
     background: var(--eerie-black-2);
   }
 
-  /* keep the profile card clear of the floating toggle in its top-right corner */
-  .sidebar { padding-right: 58px; }
+  /* keep the profile card clear of the two floating buttons in its top-right corner */
+  .sidebar { padding-right: 106px; }
 
   /* the "show contacts" arrow normally sits in the card's top-right corner, which on
      phones is flush against the theme toggle - move it to the bottom-right corner */
   .info_more-btn {
     top: auto;
     bottom: -15px;
-    right: -58px;
+    right: -106px;
     border-radius: 15px 0;
   }
 
@@ -2832,3 +2852,17 @@ textarea.form-input::-webkit-resizer { display: none; }
   border: 1px solid var(--jet);
   color: var(--orange-yellow-crayola);
 }
+
+
+/* while an Azerbaijani visitor's page is being translated, hide it for a moment
+   so English never flashes first (index.html removes this within 1.5s at most) */
+html.i18n-pending body { visibility: hidden; }
+
+/* Azerbaijani: the browser's automatic capitalising turns "i" into "I" instead of "İ"
+   and capitalises "və", so in AZ the text is written with its own correct casing */
+html[lang="az"] .h2,
+html[lang="az"] .h3,
+html[lang="az"] .h4,
+html[lang="az"] .h5,
+html[lang="az"] .form-btn,
+html[lang="az"] .case-subtitle { text-transform: none; }

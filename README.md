@@ -17,6 +17,10 @@ Plain HTML, CSS and vanilla JavaScript: no build step, no dependencies.
 
 Dark and light themes follow the visitor's system setting and can be switched with the toggle in the top-right corner.
 
+The site is in **English and Azerbaijani**. It opens in Azerbaijani when the visitor's browser is set to Azerbaijani, otherwise in English; the EN/AZ button in the top-right corner switches it, and the CV download follows the language.
+
+Every page has its own address: `#about`, `#resume`, `#portfolio`, `#contact` (e.g. https://abbasgulu.github.io/#portfolio).
+
 ## Projects
 
 | Project | Stack | Links |
@@ -34,12 +38,13 @@ Dark and light themes follow the visitor's system setting and can be switched wi
 index.html                  # single page; sections switched by JS
 assets/
   css/style.css             # all styling (theme colours are CSS variables at the top)
-  js/script.js              # navigation, theme toggle, mobile sidebar, form, image lightbox
+  js/script.js              # navigation, theme and language toggles, mobile sidebar, form, image lightbox
+  js/i18n.js                # Azerbaijani text (English lives in index.html)
   images/
     projects/               # project cover images
     projects/full/          # full-size versions opened by "View full size"
     social-card.jpg         # link preview image (LinkedIn, etc.)
-  doc/                      # CV (PDF) and certificate files
+  doc/                      # CVs (EN, AZ) and certificate files
   favicon_io/               # favicons
 .nojekyll                   # tells GitHub Pages to serve files as-is
 ```
