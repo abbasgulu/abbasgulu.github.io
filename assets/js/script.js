@@ -19,10 +19,19 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
+const formStatus = function (which) {
+  document.querySelectorAll("[data-form-status]").forEach(function (el) {
+    el.hidden = el.dataset.formStatus !== which;
+    // make sure the message is on screen (on phones it can land under the bottom menu)
+    if (!el.hidden && el.scrollIntoView) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+};
+
 // add event to all form input fields
 if (form && formBtn) {
   for (let i = 0; i < formInputs.length; i++) {
     formInputs[i].addEventListener("input", function () {
+      formStatus(null);
       if (form.checkValidity()) {
         formBtn.removeAttribute("disabled");
       } else {
@@ -30,6 +39,37 @@ if (form && formBtn) {
       }
     });
   }
+
+  // send in the background so the visitor stays on the site and sees the answer
+  // in their own language (without JavaScript the form still posts the normal way)
+  form.addEventListener("submit", function (event) {
+    if (!window.fetch || !window.FormData) return;
+    event.preventDefault();
+    formStatus(null);
+    formBtn.setAttribute("disabled", "");
+    formBtn.classList.add("is-sending");
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    }).then(function (res) {
+      if (!res.ok) {
+        // Formspree said no (e.g. its reCAPTCHA check is switched on): send the
+        // normal way instead, so the message is never lost
+        HTMLFormElement.prototype.submit.call(form);
+        return;
+      }
+      form.reset();
+      formStatus("ok");
+    }).catch(function () {
+      // no connection
+      formBtn.removeAttribute("disabled");
+      formStatus("error");
+    }).then(function () {
+      formBtn.classList.remove("is-sending");
+    });
+  });
 }
 
 

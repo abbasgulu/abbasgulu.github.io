@@ -2920,3 +2920,45 @@ html[data-lang="az"] .i18n-v[data-l="en"] { visibility: hidden; }
 .info_more-btn .i18n-v { text-align: center; }
 
 .language-level .i18n-v { text-align: right; }
+
+
+/*-----------------------------------*\
+  #CONTACT FORM - result message
+\*-----------------------------------*/
+
+.form-btn.is-sending { cursor: progress; }
+
+.form-btn.is-sending ion-icon { animation: form-send 0.9s ease-in-out infinite alternate; }
+
+@keyframes form-send {
+  to { transform: translate(4px, -4px); opacity: 0.4; }
+}
+
+.form-status {
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--jet);
+  border-left: 3px solid var(--orange-yellow-crayola);
+  background: var(--eerie-black-2);
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  scroll-margin-bottom: 100px;
+}
+
+.form-status[hidden] { display: none; }
+
+.form-status-error { border-left-color: var(--bittersweet-shimmer, #d6455d); }
+
+.form-status a {
+  display: inline;
+  color: var(--orange-yellow-crayola);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-btn.is-sending ion-icon { animation: none; }
+}

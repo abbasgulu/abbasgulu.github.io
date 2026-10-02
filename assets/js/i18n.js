@@ -154,6 +154,8 @@ const I18N_AZ = {
   'contact.ph.email': 'E-poçt ünvanı',
   'contact.ph.message': 'Mesajınız',
   'contact.send': 'Göndər',
+  'contact.ok': 'Təşəkkürlər! Mesajınız göndərildi. Tezliklə cavab verəcəm.',
+  'contact.err': 'Xəta baş verdi, mesaj göndərilmədi. Yenidən cəhd edin və ya <a href="mailto:abbasqulu.allahverdili@gmail.com">abbasqulu.allahverdili@gmail.com</a> ünvanına yazın.',
 
   // ---- small labels used by script.js ----
   'ui.lang.title': 'Switch to English',

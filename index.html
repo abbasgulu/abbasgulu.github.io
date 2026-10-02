@@ -987,6 +987,15 @@
               <span data-i18n="contact.send">Send Message</span>
             </button>
 
+            <!-- shown after sending; the visitor stays on the site -->
+            <p class="form-status form-status-ok" role="status" hidden data-form-status="ok">
+              <span data-i18n="contact.ok">Thank you! Your message has been sent. I'll get back to you soon.</span>
+            </p>
+
+            <p class="form-status form-status-error" role="alert" hidden data-form-status="error">
+              <span data-i18n-html="contact.err">Something went wrong and the message wasn't sent. Please try again or write to <a href="mailto:abbasqulu.allahverdili@gmail.com">abbasqulu.allahverdili@gmail.com</a>.</span>
+            </p>
+
           </form>
 
         </section>
