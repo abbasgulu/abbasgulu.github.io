@@ -42,6 +42,7 @@ assets/
   css/style.css             # all styling (theme colours are CSS variables at the top)
   js/script.js              # navigation, theme and language toggles, mobile sidebar, form, image lightbox
   js/i18n.js                # Azerbaijani text (English lives in index.html)
+  js/icons.js               # the icons used on the site (Ionicons SVGs), no outside server
   images/
     projects/               # project cover images
     projects/full/          # full-size versions opened by "View full size"
@@ -66,3 +67,4 @@ python -m http.server 8000
 ## Credits
 
 Based on [vCard by codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio) (MIT), substantially modified.
+Icons from [Ionicons](https://ionic.io/ionicons) (MIT).
