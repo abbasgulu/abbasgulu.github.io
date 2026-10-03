@@ -11,6 +11,8 @@
   <meta name="author" content="Abbasgulu Allahverdili">
 
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="az_AZ">
   <meta property="og:title" content="Abbasgulu Allahverdili — Data Analyst">
   <meta property="og:description" content="Data Analyst based in Baku. SQL, Python, Power BI. Public datasets, scraping pipelines and dashboards.">
   <meta property="og:url" content="https://abbasgulu.github.io/">
@@ -47,11 +49,14 @@
     - saved choice wins; otherwise follow the OS setting.
   -->
   <script>
-    // language: the visitor's own choice wins; otherwise the browser's language
-    // (Azerbaijani -> AZ, anything else -> EN). Runs before paint.
+    // language: a ?lang=az / ?lang=en link wins (e.g. the shared /az/ link), then the
+    // visitor's own choice, otherwise the browser's language (Azerbaijani -> AZ,
+    // anything else -> EN). Runs before paint.
     (function () {
-      var lang = null;
-      try { lang = localStorage.getItem('lang'); } catch (e) {}
+      var lang = (location.search.match(/[?&]lang=(az|en)(?:&|$)/) || [])[1] || null;
+      if (!lang) {
+        try { lang = localStorage.getItem('lang'); } catch (e) {}
+      }
       if (lang !== 'az' && lang !== 'en') {
         lang = 'en';
         var list = navigator.languages || [navigator.language || ''];

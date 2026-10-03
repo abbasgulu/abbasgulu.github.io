@@ -281,6 +281,11 @@ if (lightbox && lightboxImg) {
       const next = root.getAttribute("data-lang") === "az" ? "en" : "az";
       apply(next);
       try { localStorage.setItem("lang", next); } catch (e) { /* storage blocked */ }
+
+      // opened from a ?lang= link: keep the address in step, so a reload keeps the choice
+      if (/[?&]lang=/.test(location.search) && window.history && history.replaceState) {
+        history.replaceState(null, "", location.pathname + "?lang=" + next + location.hash);
+      }
     });
   }
 })();
@@ -341,7 +346,7 @@ if (lightbox && lightboxImg) {
 //   full images   -> view-full-<project>
 //   outside links -> <project>-link-<site> (on project cards) or link-<site>
 //   filters       -> filter-sql, filter-python, ... (Portfolio)
-//   language      -> switch-to-az / switch-to-en
+//   language      -> switch-to-az / switch-to-en, opened-az-link / opened-en-link
 //   contact form  -> contact-form-sent
 (function () {
   const queue = [];
@@ -370,6 +375,10 @@ if (lightbox && lightboxImg) {
   };
   pageview();
   window.addEventListener("hashchange", pageview);
+
+  // visits that came through a language link (/az/ or ?lang=...)
+  const linkLang = (location.search.match(/[?&]lang=(az|en)(?:&|$)/) || [])[1];
+  if (linkLang) event("opened-" + linkLang + "-link", "Opened the " + linkLang.toUpperCase() + " link");
 
   const projectOf = function (el) {
     const card = el.closest(".case-item");

@@ -21,6 +21,8 @@ The site is in **English and Azerbaijani**. It opens in Azerbaijani when the vis
 
 Visitor statistics are collected with [GoatCounter](https://www.goatcounter.com/) (free, no cookies, so no consent banner): page views per page, CV downloads per language, project link clicks, full-size image views, language switches and sent contact-form messages. The dashboard is at https://abbasgulu.goatcounter.com.
 
+Links to share: https://abbasgulu.github.io/ shows an English preview (LinkedIn, WhatsApp, Telegram…), https://abbasgulu.github.io/az/ an Azerbaijani one and opens the site in Azerbaijani for everyone. `?lang=en` / `?lang=az` on any address forces the language too (e.g. https://abbasgulu.github.io/?lang=en#portfolio).
+
 Every page has its own address: `#about`, `#resume`, `#portfolio`, `#contact` (e.g. https://abbasgulu.github.io/#portfolio).
 
 ## Projects
@@ -38,6 +40,7 @@ Every page has its own address: `#about`, `#resume`, `#portfolio`, `#contact` (e
 
 ```
 index.html                  # single page; sections switched by JS
+az/index.html               # Azerbaijani link: Azerbaijani preview, then opens the site in AZ
 assets/
   css/style.css             # all styling (theme colours are CSS variables at the top)
   js/script.js              # navigation, theme and language toggles, mobile sidebar, form, image lightbox
@@ -47,6 +50,7 @@ assets/
     projects/               # project cover images
     projects/full/          # full-size versions opened by "View full size"
     social-card.jpg         # link preview image (LinkedIn, etc.)
+    social-card-az.jpg      # the same in Azerbaijani, used by az/
   doc/                      # CVs (EN, AZ) and certificate files
   favicon_io/               # favicons
 .nojekyll                   # tells GitHub Pages to serve files as-is
