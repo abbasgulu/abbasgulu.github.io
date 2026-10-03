@@ -62,6 +62,7 @@ if (form && formBtn) {
       }
       form.reset();
       formStatus("ok");
+      if (window.siteStat) window.siteStat("contact-form-sent", "Contact form: message sent");
     }).catch(function () {
       // no connection
       formBtn.removeAttribute("disabled");
@@ -282,4 +283,89 @@ if (lightbox && lightboxImg) {
       try { localStorage.setItem("lang", next); } catch (e) { /* storage blocked */ }
     });
   }
+})();
+
+
+
+// visitor statistics (GoatCounter, see index.html). Counted:
+//   page views    -> /about, /resume, /portfolio, /contact
+//   CV downloads  -> cv-download-en / cv-download-az
+//   full images   -> view-full-<project>
+//   outside links -> <project>-link-<site> (on project cards) or link-<site>
+//   language      -> switch-to-az / switch-to-en
+//   contact form  -> contact-form-sent
+(function () {
+  const queue = [];
+  const ready = function () {
+    return window.goatcounter && typeof window.goatcounter.count === "function";
+  };
+  const send = function (data) {
+    if (ready()) window.goatcounter.count(data);
+    else queue.push(data);
+  };
+  const flush = function () {
+    while (queue.length && ready()) window.goatcounter.count(queue.shift());
+  };
+  const tag = document.querySelector("script[data-goatcounter]");
+  if (tag) tag.addEventListener("load", flush);
+
+  const event = function (name, title) {
+    send({ path: name, title: title || name, event: true });
+  };
+  window.siteStat = event;
+
+  const pageview = function () {
+    let page = location.hash.slice(1);
+    if (PAGE_NAMES.indexOf(page) === -1) page = "about";
+    send({ path: "/" + page, title: page.charAt(0).toUpperCase() + page.slice(1) });
+  };
+  pageview();
+  window.addEventListener("hashchange", pageview);
+
+  const projectOf = function (el) {
+    const card = el.closest(".case-item");
+    const img = card && card.querySelector("[data-lightbox]");
+    if (!img) return "";
+    return img.dataset.lightbox.split("/").pop().replace(/-full\.\w+$/, "");
+  };
+
+  const linkName = function (a) {
+    if (a.protocol === "mailto:") return "email";
+    const host = a.hostname.replace(/^www\./, "");
+    const path = a.pathname.replace(/\/+$/, "");
+    return (host + path).slice(0, 80);
+  };
+
+  const label = function (el) {
+    const v = el.querySelector(".i18n-v[data-l='en']");
+    const text = (v ? v.textContent : el.textContent).trim();
+    return (text || el.getAttribute("aria-label") || "").replace(/\s+/g, " ").slice(0, 80);
+  };
+
+  document.addEventListener("click", function (e) {
+    const cv = e.target.closest("[data-cv-link]");
+    if (cv) {
+      const az = /_AZ\.pdf$/i.test(cv.getAttribute("href"));
+      event("cv-download-" + (az ? "az" : "en"), "CV download (" + (az ? "AZ" : "EN") + ")");
+      return;
+    }
+
+    const zoom = e.target.closest("[data-lightbox]");
+    if (zoom) {
+      event("view-full-" + projectOf(zoom), "View full size: " + projectOf(zoom));
+      return;
+    }
+
+    if (e.target.closest("[data-lang-toggle]")) {
+      const next = document.documentElement.getAttribute("data-lang") === "az" ? "en" : "az";
+      event("switch-to-" + next, "Language switched to " + next.toUpperCase());
+      return;
+    }
+
+    const a = e.target.closest("a[href]");
+    if (a && (a.protocol === "mailto:" || (/^https?:$/.test(a.protocol) && a.hostname !== location.hostname))) {
+      const project = projectOf(a);
+      event((project ? project + "-" : "") + "link-" + linkName(a), label(a) || linkName(a));
+    }
+  }, true);
 })();

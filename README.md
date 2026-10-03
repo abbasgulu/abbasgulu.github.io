@@ -19,6 +19,8 @@ Dark and light themes follow the visitor's system setting and can be switched wi
 
 The site is in **English and Azerbaijani**. It opens in Azerbaijani when the visitor's browser is set to Azerbaijani, otherwise in English; the EN/AZ button in the top-right corner switches it, and the CV download follows the language.
 
+Visitor statistics are collected with [GoatCounter](https://www.goatcounter.com/) (free, no cookies, so no consent banner): page views per page, CV downloads per language, project link clicks, full-size image views, language switches and sent contact-form messages. The dashboard is at https://abbasgulu.goatcounter.com.
+
 Every page has its own address: `#about`, `#resume`, `#portfolio`, `#contact` (e.g. https://abbasgulu.github.io/#portfolio).
 
 ## Projects
