@@ -238,7 +238,7 @@ if (lightbox && lightboxImg) {
 
   // things that can't be stacked (placeholders, image captions) are swapped instead
   const swaps = [];
-  [["data-i18n-ph", "placeholder"], ["data-i18n-cap", "data-lightbox-caption"]].forEach(function (g) {
+  [["data-i18n-ph", "placeholder"], ["data-i18n-cap", "data-lightbox-caption"], ["data-i18n-aria", "aria-label"]].forEach(function (g) {
     document.querySelectorAll("[" + g[0] + "]").forEach(function (el) {
       swaps.push({ el: el, attr: g[1], en: el.getAttribute(g[1]), az: I18N_AZ[el.getAttribute(g[0])] });
     });
@@ -287,11 +287,60 @@ if (lightbox && lightboxImg) {
 
 
 
+// portfolio filter: show only the projects made with one tool
+// (each project lists its tools in data-tools="sql python ..." in index.html)
+(function () {
+  const bar = document.querySelector("[data-case-filter]");
+  if (!bar) return;
+  const items = Array.prototype.slice.call(document.querySelectorAll(".case-item[data-tools]"));
+  const buttons = Array.prototype.slice.call(bar.querySelectorAll("[data-filter]"));
+  const calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const has = function (item, tool) {
+    return tool === "all" || item.dataset.tools.split(" ").indexOf(tool) !== -1;
+  };
+
+  buttons.forEach(function (btn) {
+    const n = items.filter(function (item) { return has(item, btn.dataset.filter); }).length;
+    const count = btn.querySelector("[data-filter-count]");
+    if (count) count.textContent = n;
+    if (!n) btn.hidden = true;
+  });
+
+  const select = function (tool) {
+    buttons.forEach(function (btn) {
+      const on = btn.dataset.filter === tool;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    items.forEach(function (item) {
+      const show = has(item, tool);
+      item.hidden = !show;
+      if (show && !calm) {
+        item.classList.remove("case-in");
+        void item.offsetWidth;                     // restart the fade-in
+        item.classList.add("case-in");
+      }
+    });
+  };
+
+  bar.addEventListener("click", function (e) {
+    const btn = e.target.closest("[data-filter]");
+    if (!btn || btn.classList.contains("active")) return;
+    select(btn.dataset.filter);
+    if (window.siteStat) window.siteStat("filter-" + btn.dataset.filter, "Portfolio filter: " + btn.dataset.filter);
+  });
+
+  bar.hidden = false;
+})();
+
+
 // visitor statistics (GoatCounter, see index.html). Counted:
 //   page views    -> /about, /resume, /portfolio, /contact
 //   CV downloads  -> cv-download-en / cv-download-az
 //   full images   -> view-full-<project>
 //   outside links -> <project>-link-<site> (on project cards) or link-<site>
+//   filters       -> filter-sql, filter-python, ... (Portfolio)
 //   language      -> switch-to-az / switch-to-en
 //   contact form  -> contact-form-sent
 (function () {

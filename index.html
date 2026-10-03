@@ -567,9 +567,19 @@
           </p>
         </section>
 
+        <!-- filter by tool; the numbers are counted by script.js -->
+        <div data-i18n-aria="p.filter.label" class="case-filter" role="group" aria-label="Filter projects by tool" hidden data-case-filter>
+          <button type="button" class="case-filter-btn active" aria-pressed="true" data-filter="all"><span data-i18n="p.filter.all">All</span><span class="case-filter-count" data-filter-count></span></button>
+          <button type="button" class="case-filter-btn" aria-pressed="false" data-filter="sql">SQL<span class="case-filter-count" data-filter-count></span></button>
+          <button type="button" class="case-filter-btn" aria-pressed="false" data-filter="python">Python<span class="case-filter-count" data-filter-count></span></button>
+          <button type="button" class="case-filter-btn" aria-pressed="false" data-filter="powerbi">Power BI<span class="case-filter-count" data-filter-count></span></button>
+          <button type="button" class="case-filter-btn" aria-pressed="false" data-filter="tableau">Tableau<span class="case-filter-count" data-filter-count></span></button>
+          <button type="button" class="case-filter-btn" aria-pressed="false" data-filter="excel">Excel<span class="case-filter-count" data-filter-count></span></button>
+        </div>
+
         <ul class="case-list">
 
-          <li class="case-item">
+          <li class="case-item" data-tools="sql python tableau">
 
             <figure class="case-img" style="background: linear-gradient(#0e1420, #090d15);">
               <img src="./assets/images/projects/credit-preapproval.jpg" alt="Credit Pre-Approval Engine — Oracle SQL, LightGBM and Tableau" loading="lazy">
@@ -637,7 +647,7 @@
 
           </li>
 
-          <li class="case-item">
+          <li class="case-item" data-tools="sql python">
 
             <figure class="case-img" style="background: #102238;">
               <img src="./assets/images/projects/hr-analytics.jpg" alt="HR Workforce Analytics — Oracle SQL and Python" loading="lazy">
@@ -698,7 +708,7 @@
 
           </li>
 
-          <li class="case-item">
+          <li class="case-item" data-tools="python">
 
             <figure class="case-img" style="background: #10141c;">
               <img src="./assets/images/projects/boston-crime.jpg" alt="Crimes in Boston — exploratory analysis and severity prediction" loading="lazy">
@@ -763,7 +773,7 @@
 
           </li>
 
-          <li class="case-item">
+          <li class="case-item" data-tools="powerbi">
 
             <figure class="case-img" style="background: #274f3a;">
               <img src="./assets/images/projects/churn-dashboard.jpg" alt="Credit Card Churn Analysis — Power BI dashboard" loading="lazy">
@@ -820,7 +830,7 @@
 
           </li>
 
-          <li class="case-item">
+          <li class="case-item" data-tools="python">
 
             <figure class="case-img" style="background: #0d2233;">
               <img src="./assets/images/projects/oxu-dataset.jpg" alt="Oxu.az News Dataset — 52,946 Azerbaijani news articles" loading="lazy">
@@ -880,7 +890,7 @@
 
           </li>
 
-          <li class="case-item">
+          <li class="case-item" data-tools="excel">
 
             <figure class="case-img" style="background: #f4f8f1;">
               <img src="./assets/images/projects/superstore-dashboard.jpg" alt="Global Superstore interactive Excel dashboard" loading="lazy">

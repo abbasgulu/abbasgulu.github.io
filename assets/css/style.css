@@ -2917,6 +2917,7 @@ html[data-lang="az"] .i18n-v[data-l="en"] { visibility: hidden; }
 .resume-cv-btn .i18n-v,
 .case-img-zoom .i18n-v,
 .case-tag .i18n-v,
+.case-filter-btn .i18n-v,
 .info_more-btn .i18n-v { text-align: center; }
 
 .language-level .i18n-v { text-align: right; }
@@ -2961,4 +2962,80 @@ html[data-lang="az"] .i18n-v[data-l="en"] { visibility: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .form-btn.is-sending ion-icon { animation: none; }
+}
+
+
+/*-----------------------------------*\
+  #PORTFOLIO FILTER
+\*-----------------------------------*/
+
+.case-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.case-filter[hidden],
+.case-item[hidden] { display: none; }
+
+.case-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px 7px 14px;
+  background: var(--border-gradient-onyx);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  cursor: pointer;
+  transition: var(--transition-1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.case-filter-btn:hover { color: var(--orange-yellow-crayola); }
+
+.case-filter-btn.active {
+  color: var(--orange-yellow-crayola);
+  border-color: var(--orange-yellow-crayola);
+}
+
+.case-filter-btn:focus-visible {
+  outline: 2px solid var(--orange-yellow-crayola);
+  outline-offset: 2px;
+}
+
+.case-filter-count {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: var(--jet);
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.case-filter-btn.active .case-filter-count { color: var(--orange-yellow-crayola); }
+
+.case-item.case-in { animation: case-in 0.35s ease both; }
+
+@keyframes case-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+/* phones: a bit more compact so the six buttons take two rows */
+@media (max-width: 580px) {
+  .case-filter { gap: 6px; }
+
+  .case-filter-btn {
+    gap: 6px;
+    padding: 6px 7px 6px 11px;
+    font-size: var(--fs-8);
+  }
+
+  .case-filter-count { min-width: 18px; padding: 0 5px; }
 }

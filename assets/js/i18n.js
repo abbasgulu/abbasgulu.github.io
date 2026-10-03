@@ -98,6 +98,8 @@ const I18N_AZ = {
   'portfolio.title': 'Portfolio',
   'portfolio.intro': 'Qurduğum layihələr — məlumatın toplanması, təhlil və dashboard-lar.',
   'p.viewfull': 'Böyük ölçüdə bax',
+  'p.filter.all': 'Hamısı',
+  'p.filter.label': 'Layihələri alətə görə süz',
   'p.showed': 'TƏHLİL NƏYİ GÖSTƏRDİ',
   'p.tag.dataeng': 'Data mühəndisliyi',
   'p.tag.scraping': 'Web scraping',
